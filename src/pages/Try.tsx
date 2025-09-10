@@ -14,26 +14,28 @@ const Try = () => {
       </div>
 
       {/* Right Container */}
-      <div className="flex flex-col justify-center items-center w-full lg:w-1/2 absolute top-0 right-0  bg-white rounded-l-[40px] overflow-auto z-20  h-screen">
+      <div
+        className="flex flex-col   w-full lg:w-1/2 absolute top-0 right-0  bg-white rounded-l-[40px] overflow-auto z-20  h-screen"
+        style={{
+          backgroundImage: "url(/rightBG.png)",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+        }}
+      >
         {/* Right background image */}
-        {/* <img
-          src="/rightBG.png"
-          alt="Right Background"
-          className="absolute top-0 left-0 w-full h-full object-cover z-0"
-        /> */}
 
-        {/* Right content */}
-        <div className="flex flex-col items-center gap-6 my-[20px]">
-          <div>
-            <img src="./logo.png" alt="logo" />
-          </div>
+        <div className="flex flex-col gap-6 items-center border py-10 z-10">
+          <img src="./logo.png" alt="logo" />
+
           <p className="text-heading-6 font-bold text-brand-primary">
             Welcome to NPPF Loan Portal
           </p>
-          <div className="py-6">
-            <AuthCard/>
-          </div>
+
+          <AuthCard />
         </div>
+
+        {/* Right content */}
       </div>
     </div>
   );
