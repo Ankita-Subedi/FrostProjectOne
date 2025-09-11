@@ -13,7 +13,7 @@ import { Link } from "react-router-dom";
 
 export function AuthCard() {
   return (
-    <Card className="w-[359px] font-urbanist ">
+    <Card className="w-[359px] font-urbanist bg-white ">
       <CardHeader>
         <CardTitle>Log in to your NPPF Loan Dashboard</CardTitle>
       </CardHeader>
