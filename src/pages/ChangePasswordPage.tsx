@@ -1,13 +1,14 @@
-import { useForm, Controller } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { Form } from "@/components/ui/form";
-import { Button } from "@/components/ui/button";
 import { FrostInput } from "@/components/atoms/FrostInput";
+import AppButton from "@/components/atoms/AppButton"; 
+import { useState } from "react";
 
 type FormValues = {
-  phone: string;
-  email: string;
+  phone?: string;
+  email?: string;
 };
 
 const schema: yup.ObjectSchema<FormValues> = yup
@@ -24,20 +25,29 @@ const schema: yup.ObjectSchema<FormValues> = yup
   .test(
     "phone-or-email",
     "Either phone or email is required",
-    (value) => !!value.phone?.trim() || !!value.email?.trim()
+    (value) => !!value?.phone?.trim() || !!value?.email?.trim()
   );
 
 export default function ChangePasswordPage() {
+  const [loading, setLoading] = useState(false);
+
   const form = useForm<FormValues>({
     resolver: yupResolver(schema),
     defaultValues: { phone: "", email: "" },
   });
 
-  const onSubmit = (values: FormValues) => {
-    console.log("Form submitted:", values);
-  };
+  const handleSubmit = async (values: FormValues) => {
+    try {
+      setLoading(true);
+      console.log("Submitting form...", values);
 
-  const rootError = form.formState.errors?.root?.message;
+      await new Promise((resolve) => setTimeout(resolve, 2000));
+
+      console.log("Password change submitted:", values);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100 px-4">
@@ -53,59 +63,36 @@ export default function ChangePasswordPage() {
         <div className="w-full bg-white shadow-md rounded-lg p-6">
           <Form {...form}>
             <form
-              onSubmit={form.handleSubmit(onSubmit)}
+              onSubmit={form.handleSubmit(handleSubmit)}
               className="flex flex-col gap-4"
             >
-              <Controller
+              <FrostInput<FormValues>
                 name="phone"
                 control={form.control}
-                render={({ field }) => {
-                  const hasError =
-                    !!form.formState.errors.phone || !!rootError;
-                  return (
-                    <FrostInput<FormValues>
-                      {...field}
-                      control={form.control}
-                      label="Enter your registered phone number"
-                      type="text"
-                      placeholder="Enter your phone number"
-                      hasError={hasError}
-                    />
-                  );
-                }}
+                label="Enter your registered phone number"
+                type="text"
+                placeholder="Enter your phone number"
               />
 
               <p className="text-center text-sm text-gray-500 font-medium">OR</p>
 
-              <Controller
+              <FrostInput<FormValues>
                 name="email"
                 control={form.control}
-                render={({ field }) => {
-                  const hasError =
-                    !!form.formState.errors.email || !!rootError;
-                  return (
-                    <FrostInput<FormValues>
-                      {...field}
-                      control={form.control}
-                      label="Enter your registered email"
-                      type="email"
-                      placeholder="Enter your registered email"
-                      hasError={hasError}
-                    />
-                  );
-                }}
+                label="Enter your registered email"
+                type="email"
+                placeholder="Enter your registered email"
               />
 
-              {rootError && (
-                <p className="text-xs text-red-500 mt-1">{rootError}</p>
-              )}
-
-              <Button
+              <AppButton
                 type="submit"
-                className="w-full bg-[#0077a3] hover:bg-[#006b94] text-white py-2 rounded mt-2"
+                loading={loading}
+                loadingText="Submitting..."
+                fullWidth
+                className="bg-[#0077a3] hover:bg-[#006b94] text-white py-2 rounded mt-2"
               >
                 We’ve sent one time OTP! Please Proceed.
-              </Button>
+              </AppButton>
             </form>
           </Form>
         </div>

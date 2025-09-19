@@ -1,9 +1,14 @@
-import { useForm, Controller } from "react-hook-form";
+import { useState } from "react";
+import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { Form } from "@/components/ui/form";
-import { Button } from "@/components/ui/button";
-import OtpInput from "@/components/atoms/OtpInput";
+import {
+  InputOTP,
+  InputOTPGroup,
+  InputOTPSlot,
+} from "@/components/ui/input-otp";
+import AppButton from "@/components/atoms/AppButton";
 import { cn } from "@/lib/utils";
 
 type FormValues = {
@@ -30,13 +35,23 @@ export default function OtpVerificationPage({
   onResend,
   initialOtp = "",
 }: OtpVerificationPageProps) {
+  const [loading, setLoading] = useState(false);
+
   const form = useForm<FormValues>({
     resolver: yupResolver(schema),
     defaultValues: { otp: initialOtp ?? "" },
   });
 
-  const submit = (values: FormValues) => {
-    onSubmitOtp(values.otp);
+  const otpValue = form.watch("otp");
+
+  const submit = async (values: FormValues) => {
+    try {
+      setLoading(true);
+      await new Promise((resolve) => setTimeout(resolve, 1500)); // fake delay
+      onSubmitOtp(values.otp);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -61,46 +76,46 @@ export default function OtpVerificationPage({
               onSubmit={form.handleSubmit(submit)}
               className="flex flex-col gap-4"
             >
-              <Controller
-                name="otp"
-                control={form.control}
-                render={({ field }) => {
-                  const hasError = !!form.formState.errors.otp;
-                  return (
-                    <div className="flex flex-col items-center">
-                      <label
-                        className={cn(
-                          "mb-3",
-                          hasError ? "text-red-500" : "text-gray-400"
-                        )}
-                      >
-                        Enter your one- time OTP
-                      </label>
+              <div className="flex flex-col items-center">
+                <label
+                  className={cn(
+                    "mb-3",
+                    form.formState.errors.otp ? "text-red-500" : "text-gray-400"
+                  )}
+                >
+                  Enter your one-time OTP
+                </label>
 
-                      <OtpInput
-                        value={field.value}
-                        onChange={field.onChange}
-                        length={6}
-                        autoFocus
-                        hasError={hasError}
-                      />
+                <InputOTP
+                  maxLength={6}
+                  value={otpValue}
+                  onChange={(val) =>
+                    form.setValue("otp", val, { shouldValidate: true })
+                  }
+                >
+                  <InputOTPGroup>
+                    {[...Array(6)].map((_, i) => (
+                      <InputOTPSlot key={i} index={i} />
+                    ))}
+                  </InputOTPGroup>
+                </InputOTP>
 
-                      {form.formState.errors.otp && (
-                        <p className="text-xs text-red-500 mt-2 self-start">
-                          {form.formState.errors.otp.message}
-                        </p>
-                      )}
-                    </div>
-                  );
-                }}
-              />
+                {form.formState.errors.otp && (
+                  <p className="text-xs text-red-500 mt-2 self-start">
+                    {form.formState.errors.otp.message}
+                  </p>
+                )}
+              </div>
 
-              <Button
+              <AppButton
                 type="submit"
-                className="w-full bg-[#0077a3] hover:bg-[#006b94] text-white py-3 rounded mt-2"
+                loading={loading}
+                loadingText="Verifying..."
+                fullWidth
+                className="bg-[#0077a3] hover:bg-[#006b94] text-white py-3 rounded mt-2"
               >
                 Verify OTP
-              </Button>
+              </AppButton>
             </form>
           </Form>
 
