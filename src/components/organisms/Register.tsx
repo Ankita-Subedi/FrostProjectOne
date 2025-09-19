@@ -104,7 +104,7 @@ export function Register() {
               fullWidth
               loading={isSubmitting}
               loadingText="Registering..."
-              className="bg-primary1 w-full"
+              className="bg-primary1 hover:bg-cyan-700 w-full"
             >
               Register Now
             </AppButton>
