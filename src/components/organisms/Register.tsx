@@ -11,7 +11,7 @@ import AppButton from "../atoms/AppButton";
 
 type RegisterFormValues = {
   fullName: string;
-  dob: string; // YYYY-MM-DD
+  dob: string; 
   idType: string;
   corporateId: string;
   mobileNumber: string;
