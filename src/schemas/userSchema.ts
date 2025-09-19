@@ -6,7 +6,12 @@ export const userSchema = yup.object({
     .string()
     .max(30, "Full name must be at most 30 characters")
     .required("Full name is required"),
-  dob: yup.string().required("Date of birth is required"),
+  dob: yup.string().required("Date of birth is required").test("dob", "Date of birth cannot be in the future", (value) => {
+    if (!value) return false;
+    const selectedDate = new Date(value);
+    const today = new Date();
+    return selectedDate <= today;
+  }),
   idType: yup.string().required("ID type is required"),
   corporateId: yup.string().required("Corporate ID is required"),
   mobileNumber: yup
