@@ -37,35 +37,34 @@ const buttonVariants = cva(
   }
 )
 
-function Button({
-  className,
-  variant,
-  size,
-  asChild = false,
-  loading = false,
-  children,
-  disabled, 
-  ...props
-}: React.ComponentProps<"button"> &
-  VariantProps<typeof buttonVariants> & {
-    asChild?: boolean,
-    loading?: boolean
-  }) {
-  const Comp = asChild ? Slot : "button"
-  const isDisabled = loading || disabled
-
-  return (
-    <Comp
-  data-slot="button"
-  disabled={isDisabled}
-  className={cn(buttonVariants({ variant, size, className }))}
-  {...props}
->
-  {loading && <Loader2 className="h-4 w-4 animate-spin" />} 
-  {children}
-</Comp>
-
-  )
+// ✅ Explicit ButtonProps interface
+export interface ButtonProps
+  extends React.ComponentProps<"button">,
+    VariantProps<typeof buttonVariants> {
+  asChild?: boolean
+  loading?: boolean
 }
+
+const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
+  ({ className, variant, size, asChild = false, loading = false, children, disabled, ...props }, ref) => {
+    const Comp = asChild ? Slot : "button"
+    const isDisabled = loading || disabled
+
+    return (
+      <Comp
+        ref={ref}
+        data-slot="button"
+        disabled={isDisabled}
+        className={cn(buttonVariants({ variant, size, className }))}
+        {...props}
+      >
+        {loading && <Loader2 className="h-4 w-4 animate-spin" />}
+        {children}
+      </Comp>
+    )
+  }
+)
+
+Button.displayName = "Button"
 
 export { Button, buttonVariants }

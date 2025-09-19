@@ -1,16 +1,10 @@
-import { Routes, Route } from "react-router-dom"
-import {AuthCard} from "./pages/AuthCard"
-import SignupPage from "./pages/SignupPage"
+import RegisterPage from "./pages/RegisterPage"
 
 function App() {
 
   return (
     <>
-    <SignupPage/>
-      <Routes>
-        <Route path="/login" element={<AuthCard />} />
-        <Route path="/signup" element={<SignupPage />} />
-      </Routes>
+    <RegisterPage/>
     </>
   )
 }
