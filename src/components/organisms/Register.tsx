@@ -5,6 +5,7 @@ import { FrostInput } from "@/components/atoms/FrostInputTest";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { registerSchema } from "@/schemas/userSchema";
 import AppButton from "../atoms/AppButton";
+import { SelectInputField as FrostSelect } from "@/components/organisms/FrostSelect";
 
 type RegisterFormValues = {
   fullName: string;
@@ -40,11 +41,20 @@ export function Register() {
     await new Promise((resolve) => setTimeout(resolve, 2000));
   };
 
+  const idTypeOptions = [
+    { label: "Passport", value: "passport" },
+    { label: "Driver License", value: "driver_license" },
+    { label: "National ID", value: "nid" },
+  ];
+
   return (
     <Card className="w-[359px] font-urbanist bg-white">
       <CardContent>
         <FormProvider {...methods}>
-          <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-5">
+          <form
+            onSubmit={handleSubmit(onSubmit)}
+            className="flex flex-col gap-5"
+          >
             <FrostInput
               name="fullName"
               label="Full Name"
@@ -60,17 +70,12 @@ export function Register() {
             />
 
             <div className="grid gap-2">
-              <label htmlFor="idType">ID Type</label>
-              <select
-                id="idType"
-                {...methods.register("idType")}
-                className="border rounded p-2"
-              >
-                <option value="">Select ID Type</option>
-                <option value="passport">Passport</option>
-                <option value="driver_license">Driver License</option>
-                <option value="nid">National ID</option>
-              </select>
+              <FrostSelect
+                name="idType"
+                label="ID Type"
+                control={control}
+                options={idTypeOptions}
+              />
             </div>
 
             <FrostInput
