@@ -1,18 +1,15 @@
-import { Routes, Route } from "react-router-dom"
-import {AuthCard} from "./pages/AuthCard"
-import SignupPage from "./pages/SignupPage"
 
-function App() {
 
+import PasswordDrawer from './components/Drawer/PasswordDrawer'
+
+const App = () => {
   return (
-    <>
-    <SignupPage/>
-      <Routes>
-        <Route path="/login" element={<AuthCard />} />
-        <Route path="/signup" element={<SignupPage />} />
-      </Routes>
-    </>
+    <div>
+      <PasswordDrawer title="Password Changed" subtitle='Your Password has been changed successfully !' buttonlabel='Login With New Password'></PasswordDrawer>
+    </div>
   )
 }
 
 export default App
+
+
