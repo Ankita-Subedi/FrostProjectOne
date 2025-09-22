@@ -1,0 +1,90 @@
+export const loanSummaryDummy = {
+  loanDetails: {
+    loanPlan: "Housing Plan",
+    subLoanPlan: "Housing Flat Loan",
+    loanAmount: "Nu 20,00000",
+    interestRate: "8%",
+    loanTenure: "3 Months",
+    purposeOfLoan: "Housing Commercial Loan",
+  },
+  personalDetails: {
+    idType: "CID Number",
+    maritalStatus: "Single",
+    idNumber: "100250067",
+    occupancyStatus: "Housing Commercial Loan",
+    idIssueDate: "18-06-1995",
+    mobileNumber: "+97 808205202",
+    idExpiryDate: "18-06-2028",
+    officePhoneNumber: "01-54202222",
+    fullName: "Tshering Dorji",
+    personalEmailAddress: "dorji@45gmail.com",
+    gender: "Male",
+    numberOfDependents: "Housing Commercial Loan",
+    nationality: "Bhutanese",
+    preferredBranch: "Thimpu, Bhutan Bank",
+    dateOfBirth: "18-06-1980",
+  },
+  addressDetails: {
+    permanent: {
+      location: "32 Street , Thimpu",
+      country: "Bhutan",
+      dzongkhag: "Thimpu",
+      gewog: "Thimpu",
+    },
+    temporary: {
+      location: "Thimpu",
+      country: "Bhutan",
+      dzongkhag: "+97 808205202",
+      gewog: "Thimpu",
+    },
+  },
+  employmentDetails: {
+    typeOfEmployment: "Full Time",
+    designation: "Web Developer",
+    nameOfEmployer: "Tshering Dorji",
+    joiningDate: "02/05/2015",
+  },
+  financialDetails: {
+    grossSalary: "Nu 70,000",
+    netIncome: "Nu 7,77,000",
+    existingLiabilities: "Yes",
+  },
+  assetInformation: {
+    assetIdentified: "Yes",
+    assetCategory: "Land",
+  },
+  documentsUploaded: {
+    idDocument: "Passport",
+    contractExtensionLetter: "No",
+    passportSizedPhoto: "Yes",
+    signedPdfStatement: "Yes",
+    paySlip: "Yes",
+  },
+  guarantorDetails: {
+    fullName: "Tshering Dorji",
+    mobileNumber: "+97 808205202",
+  },
+  productDetails:{
+    name: "John Chamling Rai",
+    country: "Nepal",
+    email: "johnchamling@34gmail.com",
+    postalcode: "87874",
+    eximcode: "8848",
+    address1: "Sudekuwa Marg",
+    address2: "Lampati",
+    address3: "Nepal",
+    panno: "789858997",
+
+  },
+  uploadedDocuments:{
+    file1: "Company Details.pdf",
+    file2: "Company Details.pdf",
+    file3: "Company Details.png",
+    file4: "Company Details.pdf",
+    file5: "Company Details.png",
+    file6: "Company Details.pdf",
+    file7: "Company Details.pdf",
+    file8: "Company Details.png",
+
+  }
+};
