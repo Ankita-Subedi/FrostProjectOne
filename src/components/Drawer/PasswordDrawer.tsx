@@ -33,9 +33,9 @@ const PasswordDrawer = ({title, subtitle, buttonlabel}:DrawerProps) => {
   const isDesktop = useMediaQuery("(min-width: 768px)")
   if (isDesktop) {
     return (
-      <Dialog open={open} onOpenChange={setOpen} >
+      <Dialog open={open} onOpenChange={setOpen}  >
         
-        <DialogContent className={cn("max-w-[574px] md:h-[292px] gap-[10px] rounded-[20px] flex flex-col items-center shadow-s bg-gray-100") }  onInteractOutside={(e) => e.preventDefault()}>
+        <DialogContent  className={cn("max-w-[574px] md:h-[292px] gap-[10px] rounded-[20px] flex flex-col items-center shadow-s bg-gray-100") }  onInteractOutside={(e) => e.preventDefault()}>
           <DialogHeader>
             <DialogTitle className={cn("text-center text-[36px] font-bold text-primary-one font-mono")}>{title}</DialogTitle>
             <div className="max-w-[464px] h-[156px] border p-[24px] rounded-xl border-grey-200 flex flex-col justify-center gap-[20px] bg-white">

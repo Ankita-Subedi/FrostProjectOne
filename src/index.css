@@ -127,7 +127,12 @@
   --color-primary-one: var(--primary-one);
   --color-card-background: var(--card-background);
 }
- 
+
+
+
+.gradient-stroke-blue {
+  stroke: url(#gradient-blue-purple);
+}
 @layer base {
   * {
     @apply border-border outline-ring/50;
