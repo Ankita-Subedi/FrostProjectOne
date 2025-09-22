@@ -5,8 +5,8 @@ import LoanSummaryDetails from '../organisms/LoanSummaryCard'
 import { cn } from '@/lib/utils'
 const LoanSummaryTemplate = () => {
   return (
-    <div className='flex flex-col gap-3 px-2 py-5'>
-      <div className='flex flex-col md:flex-row justify-between items-center gap-6'>
+    <div className='flex flex-col gap-6 px-2 py-5'>
+      <div className='flex flex-col md:flex-col lg:flex-row gap-6 md:justify-between items-center'>
         <div className='flex flex-col gap-2 md:flex-row'>
                     <AppButton className={cn('bg-primary-one cursor-pointer')}><div className='flex gap-2 items-center'><span ><Download></Download></span><span>Download LC</span></div></AppButton>
                     <AppButton className={cn('bg-indigo-50 border border-brand  hover:bg-blue-200 cursor-pointer ')}><div className='flex gap-2 items-center text-[#00648A] '><span><Mail></Mail></span><span>Request Amendment</span></div></AppButton>

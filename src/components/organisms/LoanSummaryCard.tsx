@@ -20,7 +20,7 @@ export default function LoanSummaryDetails({
   };
 
   return (
-    <div className="space-y-4 pb-12">
+    <div className="space-y-4 pb-12  flex flex-col w-full gap-4">
      
 
       
