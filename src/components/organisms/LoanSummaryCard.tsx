@@ -2,7 +2,7 @@ import { loanSummaryDummy } from "@/data/loanSummaryDummy";
 import FormItemsOrganizationLayout from "../layouts/FormItemsOrganizationLayout";
 import ValueDisplay from "../atoms/ValueDisplay";
 import LoanSummaryWrapper from "../molecules/LoanSummaryWrapper";
-import UploadedDocuments from "./UploadedDocuments";
+
 
 interface LoanDetailsFormProps {
   data?: typeof loanSummaryDummy;
@@ -21,29 +21,17 @@ export default function LoanSummaryDetails({
 
   return (
     <div className="space-y-4 pb-12  flex flex-col w-full gap-4">
-     
-
-      
-
       {/* Product Details Section */}
       <LoanSummaryWrapper
         title="Product Details"
         viewOnly={viewOnly}
-        onClick={() => handleEdit(2)}>
+        onClick={() => handleEdit(2)}
+      >
         <FormItemsOrganizationLayout>
           <FormItemsOrganizationLayout.Left>
-            <ValueDisplay
-              title="Name"
-              value={data.productDetails.name}
-            />
-            <ValueDisplay
-              title="Country"
-              value={data.productDetails.country}
-            />
-            <ValueDisplay
-              title="Email"
-              value={data.productDetails.email}
-            />
+            <ValueDisplay title="Name" value={data.productDetails.name} />
+            <ValueDisplay title="Country" value={data.productDetails.country} />
+            <ValueDisplay title="Email" value={data.productDetails.email} />
             <ValueDisplay
               title="Postal Code"
               value={data.productDetails.postalcode}
@@ -52,7 +40,6 @@ export default function LoanSummaryDetails({
               title="EXIM Code"
               value={data.productDetails.eximcode}
             />
-           
           </FormItemsOrganizationLayout.Left>
           <FormItemsOrganizationLayout.Right>
             <ValueDisplay
@@ -67,21 +54,11 @@ export default function LoanSummaryDetails({
               title="Address 3"
               value={data.productDetails.address3}
             />
-            <ValueDisplay
-              title="PAN NO"
-              value={data.productDetails.panno}
-            />
-          
-            
-           
+            <ValueDisplay title="PAN NO" value={data.productDetails.panno} />
           </FormItemsOrganizationLayout.Right>
         </FormItemsOrganizationLayout>
       </LoanSummaryWrapper>
-      <LoanSummaryWrapper title="Uploaded Documents">
-          <UploadedDocuments/>
-        
-      </LoanSummaryWrapper>
-    
+     
     </div>
   );
 }

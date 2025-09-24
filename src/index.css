@@ -2,7 +2,9 @@
 @import "tw-animate-css";
  
 @custom-variant dark (&:is(.dark *));
- 
+ ::-webkit-scrollbar{
+  display: none;
+ }
 :root {
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
@@ -44,6 +46,7 @@
   --card-background: #F0F0F0;
   --pdf-icon-color: #EF5350;
     --reapply-but: #18BC88;
+
 }
  
 .dark {

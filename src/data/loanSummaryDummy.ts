@@ -76,15 +76,16 @@ export const loanSummaryDummy = {
     panno: "789858997",
 
   },
-  uploadedDocuments:{
-    file1: "Company Details.pdf",
-    file2: "Company Details.pdf",
-    file3: "Company Details.png",
-    file4: "Company Details.pdf",
-    file5: "Company Details.png",
-    file6: "Company Details.pdf",
-    file7: "Company Details.pdf",
-    file8: "Company Details.png",
-
-  }
+  uploadedDocuments:[
+    { id: 1, fileName: "loan summary.pdf" },
+  { id: 2, fileName: "invoice_march.png" },
+  { id: 3, fileName: "profile_picture.png" },
+  { id: 4, fileName: "contract.pdf" },
+  { id: 5, fileName: "report_2025.pdf" },
+  { id: 6, fileName: "report_2025.png" },
+  { id: 7, fileName: "report_025.png" },
+  { id: 8, fileName: "report_025.pdf" },
+  
+  
+  ]
 };
