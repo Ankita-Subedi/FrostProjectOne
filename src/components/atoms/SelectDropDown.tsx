@@ -46,7 +46,7 @@ export function SelectInputField<T extends FieldValues = FieldValues>({
       render={({ field }) => (
         <FormItem
           className={clsx(
-            'flex gap-2 whitespace-nowrap w-full h-full',
+            'flex gap-2 whitespace-nowrap w-full  h-full',
             className
           )}
         >
@@ -62,8 +62,12 @@ export function SelectInputField<T extends FieldValues = FieldValues>({
             >
               <SelectTrigger
                 id={name}
-                className={clsx(
-                  'w-full mx-auto data-[placeholder]:bg-clip-text data-[placeholder]:text-transparent data-[placeholder]:bg-[linear-gradient(266.02deg,#66CD00_-70.07%,#299FE7_105.05%)] bg-[linear-gradient(107.13deg,rgba(41,159,231,0.1)_18.25%,rgba(245,223,41,0.1)_133.7%)]',
+                // className={clsx(
+                //   'w-full mx-auto data-[placeholder]:bg-clip-text data-[placeholder]:text-transparent data-[placeholder]:bg-[linear-gradient(266.02deg,#66CD00_-70.07%,#299FE7_105.05%)] bg-[linear-gradient(107.13deg,rgba(41,159,231,0.1)_18.25%,rgba(245,223,41,0.1)_133.7%)]',
+                //   className 
+                // )}
+                 className={clsx(
+                  'w-[200px] mx-auto  ',
                   className 
                 )}
                 key={name}

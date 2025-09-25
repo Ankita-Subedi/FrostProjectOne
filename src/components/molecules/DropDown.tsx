@@ -6,19 +6,28 @@ import { FormItem,  FormControl, FormMessage, Form } from "@/components/ui/form"
 import {  Sparkles } from "lucide-react"
 
 
-type FormValues = { fruit: string }
+type FormValues = { data: string }
 
-const options = [
-  { label: "Auto fill from document", value: "From Document" },
-  { label: "Auto fill from history", value: "From History" },
+// const options = [
+//   { label: "Auto fill from document", value: "From Document" },
+//   { label: "Auto fill from history", value: "From History" },
  
-]
+// ]
+type Option = {
+  label: string
+  value: string
+}
 
-const DropDownFrost = () => {
-  const form = useForm<FormValues>({ defaultValues: { fruit: "" } })
+type DropDownFrostProps = {
+  label: string
+  options: Option[]
+}
+
+const DropDownFrost = ({label, options}:DropDownFrostProps) => {
+  const form = useForm<FormValues>({ defaultValues: { data: "" } })
 
   const onSubmit: SubmitHandler<FormValues> = (data) => {
-    console.log("Selected Value:", data.fruit)
+    console.log("Selected Value:", data.data)
   }
 
   return (
@@ -31,10 +40,10 @@ const DropDownFrost = () => {
             <FormControl>
               <SelectInputField
                 
-                name="fruit"
+                name="data"
                 control={form.control}
                 options={options}
-                placeholder="Smart Fill with AI"
+                placeholder={label}
                label=""
             
 

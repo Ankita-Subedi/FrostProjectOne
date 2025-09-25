@@ -4,6 +4,7 @@
 
 
 
+import ApplicationDetails from "./components/pages/ApplicationDetails"
 import LoanSummaryTemplate from "./components/templates/LoanSummaryTemplate"
 
 
@@ -28,7 +29,7 @@ const App = () => {
 
 //    </>
 <>
-<LoanSummaryTemplate/>
+<ApplicationDetails/>
 </>
   
    

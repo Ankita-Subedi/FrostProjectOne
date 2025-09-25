@@ -14,8 +14,8 @@ import { cn } from "@/lib/utils";
 import {  DownloadIcon } from "lucide-react";
 type Props = {
   filename: string;
-  file: File | null;
-  setFile: (file: File | null) => void;
+  file: string | null;
+  setFile: (file: string | null) => void;
 };
 const UploadedDocumentsWithPreview = ({ filename , setFile}:Props) => {
   const isPdf = filename.toLowerCase().endsWith(".pdf");
@@ -25,7 +25,7 @@ const UploadedDocumentsWithPreview = ({ filename , setFile}:Props) => {
     <Dialog>
       <DialogTrigger onClick={()=>setFile(filename)}>
         <UploadedDocumentsCard filename={filename}>
-          <div className="flex items-center justify-center gap-4">
+          <div className="flex items-center justify-center gap-4 cursor-pointer">
             {isPdf && <FaFilePdf className="size-[35px] text-pdf-icon" />}
             {isPng && <BsFiletypePng className="text-brand size-[35px]" />}
             <span>{filename}</span>

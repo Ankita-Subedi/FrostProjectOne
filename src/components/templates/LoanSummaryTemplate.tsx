@@ -1,22 +1,22 @@
-
-
 import LoanSummaryDetails from "../organisms/LoanSummaryCard";
-
 import DocumentsGroupCard from "../organisms/DocumentsGroupCard";
-import BankCorrespondence from "../molecules/BankCorrespondence";
 import { loanSummaryDummy } from "@/data/loanSummaryDummy";
-import ButtonGroup from "../molecules/ButtonGroup";
+
+type LoanSummaryTemplateProps = {
+  detailTitle: string;
+};
 
 const documents = loanSummaryDummy.uploadedDocuments;
+const bills = loanSummaryDummy.billsReceived;
 
-const LoanSummaryTemplate = () => {
+const LoanSummaryTemplate = ({ detailTitle }: LoanSummaryTemplateProps) => {
   return (
-    <div className="flex flex-col gap-6 px-2 py-5">
-      <LoanSummaryDetails />
-
-      <ButtonGroup/>
-      <DocumentsGroupCard documents={documents} />
-      <BankCorrespondence />
+    <div className="flex flex-col  ">
+      <LoanSummaryDetails detailTitle={detailTitle} />
+      <div className="flex flex-col gap-12">
+        <DocumentsGroupCard documents={documents} title="Uploaded Documents" />
+        <DocumentsGroupCard documents={bills} title="Bills Received" />
+      </div>
     </div>
   );
 };

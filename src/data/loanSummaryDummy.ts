@@ -87,5 +87,26 @@ export const loanSummaryDummy = {
   { id: 8, fileName: "report_025.pdf" },
   
   
-  ]
+  ],
+  billsReceived:[
+    { id: 1, fileName: "loan summary.pdf" },
+  { id: 2, fileName: "invoice_march.png" },
+  { id: 3, fileName: "profile_picture.png" },
+  { id: 4, fileName: "contract.pdf" },
+  ],
+  applicationDetail:{
+    formofcredit: "Irrevocable",
+    dateofissue: "2025-09-12",
+    typeofLC: "Transferable",
+    bankname: "87874",
+    transferbank: "8848",
+    amount: "8848",
+    additionalamount: "8848",
+    applicationrules: "Sudekuwa Marg",
+    reference: "Lampati",
+    revolvingLC: "Nepal",
+    expirydate: "789858997",
+    expiryplace: "789858997",
+    tolerance: "789858997",
+  }
 };
