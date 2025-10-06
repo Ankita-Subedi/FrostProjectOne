@@ -1,10 +1,10 @@
-import {SkeletonCard} from "./components/skeletons/SkeletonCard"
+import SkeletonCardList from "./components/skeletons/SkeletonCardList"
 
 function App() {
 
   return (
     <>
-    <SkeletonCard/>
+    <SkeletonCardList count={4}/>
     </>
   )
 }
