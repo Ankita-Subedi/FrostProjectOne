@@ -1,3 +1,4 @@
+import {SkeletonCard} from "./components/skeletons/SkeletonCard"
 import RegisterPage from "./pages/RegisterPage"
 
 function App() {
@@ -5,6 +6,7 @@ function App() {
   return (
     <>
     <RegisterPage/>
+    <SkeletonCard/>
     </>
   )
 }
