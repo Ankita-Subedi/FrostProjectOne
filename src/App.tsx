@@ -1,10 +1,12 @@
 import SkeletonCardList from "./components/skeletons/SkeletonCardList"
+import { SkeletonRow } from "./components/skeletons/SkeletonRow"
+import SkeletonRowList from "./components/skeletons/SkeletonRowList"
 
 function App() {
 
   return (
     <>
-    <SkeletonCardList count={4}/>
+    <SkeletonRowList count={8}/>
     </>
   )
 }
